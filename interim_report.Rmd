@@ -1,0 +1,51 @@
+---
+title: "Project Titanic: Chances of survival"
+output: html_document
+date: "2023-12-02"
+team: "Natalia Skutar, Alina Babenko, Yelyzaveta Mashchenko"
+---
+
+### Data Exploration and Background:
+
+The dataset we chose contains details of 891 passengers who were on board the Titanic during its not very long voyage. These details reveal different personal information, including but not limited to gender, age, and ticket class. The Titanic disaster provides a unique context for analyzing the factors that could influence passengers' chances of survival.
+
+### Initial Findings:
+
+After review of the work, done by other, we have concluded that the challenge's results indicate that passengers from the 1st class, women, and individuals of middle age were more likely to survive. This matches with the common knowledge that priority might have been given to certain groups during the evacuation process. However, the unpredictability of such disasters adds some complexity to the analysis, making the formulation of hypotheses to systematically investigate these patterns.
+
+### Formulation of Hypotheses:
+
+The formulated hypotheses, $H_0$ and $H_1$, provide a structured framework for statistical testing. $H_0$ posits that the chances of survival are assigned independently, suggesting that factors such as gender, age, and class have no significant influence on survival outcomes. Conversely, $H_1$ proposes that there is a dependency between the chances of survival and these identified factors, implying that certain groups may have had higher or lower probabilities of survival.
+
+-   We can start with sex. $H_0: \mu0 = \mu1 ; H_1: \mu0 > \mu1$
+
+where $\mu0$ is female and $\mu1$ is male.
+
+-   Continue with class.
+    -   $H_0: \mu1 = \mu2 ; H_1: \mu1 > \mu2$
+    -   $H_0: \mu2 = \mu3 ; H_1: \mu2 > \mu3$
+    -   $H_0: \mu1 = \mu3 ; H_1: \mu1 > \mu3$
+
+where $\mu1$ - first class, $\mu2$ - second class and $\mu3$ - third class.
+
+-   At last we analyze age of passengers.
+
+    -   $H_0: \mu1 = \mu2 ; H_1: \mu1 > \mu2$
+    -   $H_0: \mu2 = \mu3 ; H_1: \mu2 > \mu3$
+    -   $H_0: \mu1 = \mu3 ; H_1: \mu1 > \mu3$
+
+where $\mu1$ - children under 18, $\mu2$ - adults and $\mu3$ - elderly after 50.
+
+### Methodological Approaches:
+
+To empirically test these hypotheses, different analytical approaches can be used. Data visualization techniques, such as creating survival curves or heatmaps, can provide a good understanding of the relationships between different variables. Statistical tests, including chi-square tests for independence, can multiply the significance of these relationships. Machine learning models may further enhance predictive capabilities and reveal complex interactions between multiple variables.
+
+### Importance of Rigorous Analysis:
+
+Understanding the factors influencing survival on the Titanic is not merely an academic exercise but contributes to a greater understanding of decision-making during crises. The application of statistical methods ensures that conclusions drawn from the dataset are robust and can potentially offer insights into human behavior in emergency situations.
+
+In conclusion, the dataset from the Titanic provides a unique opportunity to explore the dynamics of survival during a historical disaster. The formulated hypotheses and the subsequent analytical approaches aim to unravel the intricacies of these dynamics, shedding light on the factors that may have influenced passengers' chances of survival.
+
+### Our data set:
+
+<https://www.kaggle.com/datasets/yasserh/titanic-dataset>

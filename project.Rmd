@@ -1,0 +1,103 @@
+---
+title: "Project Titanic: Chances of survival"
+output: html_document
+team: "Natalia Skutar, Alina Babenko, Yelyzaveta Mashchenko"
+---
+
+```{r}
+# Read the CSV file
+data <- read.csv("data.csv")
+```
+
+```{r}
+# Extract Survived values for male and female
+survived_male <- subset(data, Sex == "male")$Survived
+survived_female <- subset(data, Sex == "female")$Survived
+```
+
+```{r}
+# Perform the t-test
+result <- t.test(survived_female, survived_male, alternative = "greater")
+
+# Print the result
+print(result)
+```
+
+```{r}
+# Extract Survived values for class 1, 2 and 3
+survived_class1 <- subset(data, Pclass == 1)$Survived
+survived_class2 <- subset(data, Pclass == 2)$Survived
+survived_class3 <- subset(data, Pclass == 3)$Survived
+```
+
+```{r}
+# Perform the t-test
+result <- t.test(survived_class1, survived_class2, alternative = "greater")
+
+# Print the result
+print(result)
+```
+
+```{r}
+# Perform the t-test
+result <- t.test(survived_class2, survived_class3, alternative = "greater")
+
+# Print the result
+print(result)
+```
+
+```{r}
+# Perform the t-test
+result <- t.test(survived_class1, survived_class3, alternative = "greater")
+
+# Print the result
+print(result)
+```
+
+```{r}
+# Extract Survived values for class 1, 2 and 3
+survived_children <- data[complete.cases(data$Age) & data$Age < 18, "Survived"]
+survived_adults <- data[complete.cases(data$Age) & data$Age >= 18 & data$Age <= 50, "Survived"]
+survived_elderly <- data[complete.cases(data$Age) & data$Age > 50, "Survived"]
+```
+
+```{r}
+# Perform the t-test
+result <- t.test(survived_children, survived_adults, alternative = "greater")
+
+# Print the result
+print(result)
+```
+
+```{r}
+# Perform the t-test
+result <- t.test(survived_adults, survived_elderly, alternative = "greater")
+
+# Print the result
+print(result)
+```
+
+```{r}
+# Perform the t-test
+result <- t.test(survived_children, survived_elderly, alternative = "greater")
+
+# Print the result
+print(result)
+```
+
+## Bonus
+
+```{r}
+rose <- mean(subset(data, Sex == "female" & Pclass == 1 & (complete.cases(data$Age) & data$Age < 18))$Survived)
+print(rose)
+```
+
+```{r}
+jack <- mean(subset(data, Sex == "male" & Pclass == 3 & (complete.cases(data$Age) & data$Age >= 18 & data$Age <= 50))$Survived)
+print(jack)
+```
+
+```{r}
+pan_rostyslav <- mean(subset(data, Sex == "male" & Pclass == 1 & (complete.cases(data$Age) & data$Age >= 18 & data$Age <= 50))$Survived)
+print(pan_rostyslav)
+```
